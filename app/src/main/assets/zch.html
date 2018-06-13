@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no"
+          id="viewport"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title></title>
+    <style type="text/css">
+        *{ margin:0px;padding :0px;}
+        html,body {width: 100%; height: 100%;margin:0; padding:0;font-size: 62.5%; font-family:
+        "Microsoft YaHei", \5b8b\4f53, Arial, sans-serif;color: #363636;background:#f2f2f2;}
+        body{overflow-y:auto;}
+        div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,p{padding:0;
+        margin:0;}
+        ol,ul {list-style:none;}
+        li{list-style-type:none;}
+        img{vertical-align:top;border:0;}
+        h1,h2,h3,h4,h5,h6{font-size:inherit; font-weight:normal;}
+        button,textarea{border:none; outline：none; -webkit-appearance: none;}
+        address,cite,code,em,th,i{font-weight:normal; font-style:normal;}
+        .hx a,.hx em,.fB{font-weight:bold;}
+        .clearfix{clear: both;*zoom:1;}
+        .clearfix:after{display:block; overflow:hidden;clear:both;height:0;font-size: 0;
+        visibility:hidden;content:".";}
+        a,a:hover,a:active,a:visited {text-decoration:none;}
+        div{margin: 10px 10px;font-size: 30px;cursor: pointer;border: 1px solid red;display:
+        inline-block; border-radius: 5px;}
+        #result{display: block; bottom:30%;right:0;width:50%;height:auto;background:
+        deepskyblue;position: fixed;font-size: 18px;line-height: 30px;border-radius: 5px;color:
+        white;opacity: 0.8;word-break: break-all;}
+        #getinfo{display: block; bottom:10%;left:0;width:100%;height:auto;background: red;position:
+        fixed;font-size: 18px;line-height: 30px;border-radius: 5px;color: white;opacity:
+        0.8;word-break: break-all;}
+        #photo{display: block; bottom:0;right:0;max-width:20%;max-height:20%;position:
+        fixed;font-size: 18px;line-height: 30px;opacity: 0.8;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+
+<p style="background:green;font-weight:900;font-size:20px;">Preference</p>
+<div id="put">存储</div>
+<div id="get">取值</div>
+
+<p style="background:green;font-weight:900;font-size:20px;">App</p>
+<div id="sao">扫二维码</div>
+
+
+<div id="result"></div>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/adios.js"></script>
+<script type="text/javascript">
+window.onload = function (){
+	$('#put').on('click',function(){
+        var data = {
+            "title": "haha"
+        }
+		Preference.put('info',data,"userFlag");
+        $('#result').html("存储key为info,内容为" + JSON.stringify(data));
+	});
+
+	$('#get').on('click',function(){
+		var data = Preference.get('info','',"userFlag");
+		$('#result').html("获取info内容"+JSON.stringify(data));
+	});
+
+	$('#sao').on('click',function(){
+	    var result = App.sao();
+	});
+
+}
+
+var Preference = {
+    // 存储
+    put: function (key, value, prefname) {
+        var args = {
+            "key": key,
+            "value": value,
+            "prefname": prefname
+        };
+        exec_syn("Preference", "put", JSON.stringify(args));
+    },
+    // 取值
+    get: function (key, defValue, prefname) {
+        var args = {
+            "key": key,
+            "defValue": defValue,
+            "prefname": prefname
+        };
+        return exec_syn("Preference", "get", JSON.stringify(args));
+    }
+}
+
+var App = {
+    sao: function () {
+        exec_syn("App", "sao", null);
+    }
+}
+
+
+var exec_syn = function (service, action, args) {
+    var json = {
+        "service": service,
+        "action": action
+    };
+    var result_str = prompt(JSON.stringify(json), args);//移动端返回的结果字符串
+    var result;//移动端返回的结果JSON对象
+    var status;//0，表示成功
+    var message;//返回的js想要的结果
+    try {
+        result = JSON.parse(result_str);
+    } catch (e) {
+        console.error(e.message);
+    }
+    if (result) {
+        status = result.status;
+        message = result.message;
+    }
+    if (status == 0) {
+        return message;
+    } else {
+        console.error("service:" + service + " action:" + action + " error:"+ message);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

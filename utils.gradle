@@ -1,0 +1,15 @@
+//获取当天日期
+def getNowDate() {
+    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
+}
+
+//获取当前应用名称
+def getAppName() {
+    return getName()
+}
+
+
+ext {
+    getNowDate = this.&getNowDate
+    getAppName = this.&getAppName
+}

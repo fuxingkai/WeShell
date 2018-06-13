@@ -1,0 +1,569 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId "cn.jufuns.jumobile.ws"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+    }
+
+    signingConfigs {
+        release {
+            keyAlias 'shphone'
+            keyPassword '12345678'
+//            storeFile file('C:\\Users\\Administrator\\Desktop\\Ilegend\\shphone.key')
+            storeFile file(rootProject.ext.releaseStoreFile)
+            storePassword '12345678'
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+
+    productFlavors {
+
+//        rXiaokong {
+//            applicationId "cn.jufuns.jumobile.ws.xk"
+//            manifestPlaceholders = [APP_NAME: "销控", APP_ICON: "@drawable/xiaokong", "URL": "http://saas.jufuns.cn:80/logincall.do?date_type=sales", "DOMAIN": "saasintf.jufuns.cn:8180"]
+//            versionCode 1003
+//            versionName "2.0.3.0"
+//        }
+//
+//        rPanke {
+//            applicationId "cn.jufuns.jumobile.ws.pk"
+//            manifestPlaceholders = [APP_NAME: "判客", APP_ICON: "@drawable/panke", "URL": "http://saas.jufuns.cn:80/logincall.do?date_type=customer", "DOMAIN": "saasintf.jufuns.cn:8180"]
+//            versionCode 1003
+//            versionName "2.0.3.0"
+//        }
+//
+//        dbllfJiefang {
+//            applicationId "cn.jufuns.jumobile.ws.jf"
+//            manifestPlaceholders = [APP_NAME: "接访", APP_ICON: "@drawable/jiefang", "URL": "http://119.29.152.241:8480/logincall.do?date_type=visit", "DOMAIN": "119.29.152.241:8380"]
+//            versionCode 1003
+//            versionName "2.0.3.0"
+//        }
+//
+//        dbllfXiaokong {
+//            applicationId "cn.jufuns.jumobile.ws.xk"
+//            manifestPlaceholders = [APP_NAME: "销控", APP_ICON: "@drawable/xiaokong", "URL": "http://119.29.152.241:8480/logincall.do?date_type=sales", "DOMAIN": "119.29.152.241:8380"]
+//            versionCode 1003
+//            versionName "2.0.3.0"
+//        }
+//
+//        dbllfSuanjia {
+//            applicationId "cn.jufuns.jumobile.ws.suanjia"
+//            manifestPlaceholders = [APP_NAME: "算价单", APP_ICON: "@drawable/suanjia", "URL": "http://119.29.152.241:8480/logincall.do?date_type=price", "DOMAIN": "119.29.152.241:8380"]
+//            versionCode 1004
+//            versionName "2.0.3.1"
+//        }
+//        rJieFangGuangLi {
+//            applicationId "cn.jufuns.jumobile.ws.jfgl"
+//            manifestPlaceholders = [APP_NAME: "接访管理", APP_ICON: "@drawable/jiefang", "URL": "http://172.16.1.13:8086/web/logincall.do?date_type=visit", "DOMAIN": "saasintf.jufuns.cn:8180"]
+//            versionCode 1004
+//            versionName "2.0.3.1"
+//        }
+
+//        rYidonghuawu {
+//            applicationId "cn.jufuns.jumobile.ws.ydhw"
+//            manifestPlaceholders = [APP_NAME: "移动话务", APP_ICON:
+//                    "@drawable/yidonghuawu", "URL": "http://172.16.1.13:8086/cqcrm/cqcrmlogin.do?date_type=", "DOMAIN": "172.16.1.13:8086"]
+//            versionCode 1004
+//            versionName "2.0.3.1"
+//        }
+
+//        rJiefang {
+//            applicationId "cn.jufuns.jumobile.ws.jf"
+//            manifestPlaceholders = [APP_NAME: "接访", APP_ICON: "@drawable/jiefang", "URL": "http://saas.jufuns.cn:80/logincall.do?date_type=visit", "DOMAIN": "saasintf.jufuns.cn:8180"]
+//            versionCode 1002
+//            versionName "2.0.2.0"
+//        }
+//
+//        rYidonghuawu {
+//            applicationId "cn.jufuns.jumobile.ws.ydhw"
+//            manifestPlaceholders = [APP_NAME: "移动话务", APP_ICON: "@drawable/yidonghuawu", "URL": "http://saas.jufuns.cn/cqcrm/cqcrmindex_doCqCrmIndex.do?date_type=", "DOMAIN": "saasintf.jufuns.cn:8180"]
+//            versionCode 1004
+//            versionName "2.0.3.1"
+//        }
+//
+//        rJiefang {
+//            applicationId "cn.jufuns.jumobile.ws.jf"
+//            manifestPlaceholders = [APP_NAME: "接访", APP_ICON: "@drawable/jiefang", "URL": "http://saas.jufuns.cn:80/logincall.do?date_type=visit", "DOMAIN": "saasintf.jufuns.cn:8180"]
+//            versionCode 1002
+//            versionName "2.0.2.0"
+//        }
+//        rXiaokong {
+//            applicationId "cn.jufuns.jumobile.ws.xk"
+//            manifestPlaceholders = [APP_NAME: "销控", APP_ICON: "@drawable/xiaokong", "URL": "http://saas.jufuns.cn:80/logincall.do?date_type=visit", "DOMAIN": "saasintf.jufuns.cn:8180"]
+//            versionCode 1004
+//            versionName "2.0.4.0"
+//        }
+//
+//        rM3 {
+//            applicationId "cn.jufuns.jumobile.ws.m3"
+//            manifestPlaceholders = [APP_NAME: "移动销售", APP_ICON: "@drawable/m3", "URL": "http://saas.jufuns.cn:80/logincall.do?date_type=", "DOMAIN": "saasintf.jufuns.cn:8180"]
+//            versionCode 1005
+//            versionName "2.0.3.2"
+//        }
+//
+//        rM3FoShan {//佛山
+//            applicationId "cn.jufuns.jumobile.ws.m3"
+//            manifestPlaceholders = [APP_NAME: "移动销售", APP_ICON: "@drawable/m3", "URL": "http://120.77.169.22:80/logincall.do?date_type=", "DOMAIN": "120.77.169.22:8280"]
+//            versionCode 1005
+//            versionName "2.0.3.2"
+//        }
+//
+//        rSuanjia {
+//            applicationId "cn.jufuns.jumobile.ws.suanjia"
+//            manifestPlaceholders = [APP_NAME: "算价单", APP_ICON: "@drawable/suanjia", "URL": "http://saas.jufuns.cn:80/logincall.do?date_type=price", "DOMAIN": "saasintf.jufuns.cn:8180"]
+//            versionCode 1004
+//            versionName "2.0.3.1"
+//        }
+
+
+//        fhYidonghuawu {//佛山汇城
+//            applicationId "cn.jufuns.jumobile.ws.ydhw"
+//            manifestPlaceholders = [APP_NAME: "移动话务", APP_ICON: "@drawable/yidonghuawu", "URL": "http://120.77.169.22:80/cqcrm/cqcrmindex_doCqCrmIndex.do?date_type=", "DOMAIN": "120.77.169.22:8280"]
+//            versionCode 1004
+//            versionName "2.0.3.1"
+//        }
+//
+//        fhJieFangGuangLi {//佛山汇城
+//            applicationId "cn.jufuns.jumobile.ws.jfgl"
+//            manifestPlaceholders = [APP_NAME: "接访管理", APP_ICON: "@drawable/jiefang", "URL": "http://120.77.169.22:80/logincall.do?date_type=visit", "DOMAIN": "120.77.169.22:8280"]
+//            versionCode 1004
+//            versionName "2.0.3.1"
+//        }
+//        fhYidongxiaoshou {//佛山汇城
+//            applicationId "cn.jufuns.jumobile.ws.m3"
+//            manifestPlaceholders = [APP_NAME: "移动销售", APP_ICON: "@drawable/m3", "URL": "http://120.77.169.22:80/logincall.do?date_type=", "DOMAIN": "120.77.169.22:8280"]
+//            versionCode 1005
+//            versionName "2.0.3.2"
+//        }
+//        zhongtian {//天中M3
+//            applicationId "cn.jufuns.jumobile.ws.m3"
+//            manifestPlaceholders = [APP_NAME: "聚客宝M3", APP_ICON: "@drawable/zt", "URL": "http://guangzhouilegend.xicp.net:8081/web/logincall.do?f=mag", "DOMAIN": "120.77.169.22:8280"]
+//            versionCode 1005
+//            versionName "2.0.3.2"
+//        }
+//        m3_1 {//代理商
+//            applicationId "cn.jufuns.jumobile.ws.m3.daili"
+//            manifestPlaceholders = [APP_NAME: "移动销售代理商", APP_ICON: "@drawable/m3_1", "URL": "http://172.16.2.147:8180/logincall.do?f=mag", "DOMAIN": "120.77.169.22:8280"]
+//            versionCode 1005
+//            versionName "2.0.3.2"
+//        }
+//        m3_1_r {//代理商
+//            applicationId "cn.jufuns.jumobile.ws.m3.daili"
+//            manifestPlaceholders = [APP_NAME: "移动销售代理商", APP_ICON: "@drawable/m3_1", "URL": "http://183.6.179.98:8180/logincall.do?f=mag", "DOMAIN": "120.77.169.22:8280"]
+//            versionCode 1005
+//            versionName "2.0.3.2"
+//        }
+
+
+//        xjM3 {//新疆广汇移动销售
+//            applicationId "cn.jufuns.jumobile.ws.m3"
+//            manifestPlaceholders = [APP_NAME: "移动销售", APP_ICON:
+//                    "@drawable/m3", "URL": "http://124.117.251.206:8280/logincall.do?date_type=", "DOMAIN": "124.117.251.206:8280",
+//                                    "INTERNAL_URL":"http://192.168.30.8:8080/logincall.do?date_type=",
+//                                    "INTERNAL_DOMAIN":"192.168.30.8:8080"]
+//            versionCode 1005
+//            versionName "2.0.3.2"
+//        }
+
+//        xjYidonghuawu { //新疆广汇移动话务-wai
+//            applicationId "cn.jufuns.jumobile.ws.ydhw"
+//            manifestPlaceholders = [APP_NAME: "移动话务", APP_ICON: "@drawable/yidonghuawu",
+//                                    "URL": "http://124.117.251.206:8280/cqcrm/cqcrmindex_doCqCrmIndex.do?date_type=", "DOMAIN": "124.117.251.206:8280"
+//                     ,"INTERNAL_URL":"http://192.168.30.8:8080/cqcrm/cqcrmindex_doCqCrmIndex.do?date_type=","INTERNAL_DOMAIN":"192.168.30.8:8080"]
+//            versionCode 1003
+//            versionName "2.0.3.0"
+//        }
+
+//        xjYidonghuawu { //新疆广汇移动话务-nei
+//            applicationId "cn.jufuns.jumobile.ws.ydhw"
+//            manifestPlaceholders = [APP_NAME: "移动话务", APP_ICON: "@drawable/yidonghuawu",
+//                                    "URL": "http://192.168.30.8:8080/cqcrm/cqcrmindex_doCqCrmIndex.do?date_type=", "DOMAIN": "192.168.30.8:8080"
+//                                    ,"INTERNAL_URL":"http://192.168.30.8:8080/cqcrm/cqcrmindex_doCqCrmIndex.do?date_type=","INTERNAL_DOMAIN":"192.168.30.8:8080"]
+//            versionCode 1003
+//            versionName "2.0.3.0"
+//        }
+//        hdM3 {//海德M3
+//            applicationId "cn.jufuns.jumobile.ws.m3"
+//            manifestPlaceholders = [APP_NAME: "移动销售", APP_ICON:
+//                    "@drawable/m3", "URL": "http://218.26.184.177:8280/logincall.do?date_type=", "DOMAIN": "218.26.184.177:8280", "INTERNAL_URL":"http://192.168.1.100:8080/logincall.do?date_type=",
+//                                    "INTERNAL_DOMAIN":"192.168.1.100:8080"]
+//            versionCode 1006
+//            versionName "2.0.4.2"
+//        }
+
+//        dYidonghuawu {
+//            applicationId "cn.jufuns.jumobile.ws.ydhw"
+//            manifestPlaceholders = [APP_NAME: "移动话务", APP_ICON: "@drawable/yidonghuawu",
+//                                    "URL": "http://172.16.1.9:8086/web/cqcrm/cqcrmindex_doCqCrmIndex.do?date_type=", "DOMAIN": "172.16.1.9:8086",
+//                                            "INTERNAL_URL":"http://172.16.1.9:8086/web/cqcrm/cqcrmindex_doCqCrmIndex.do?date_type=","INTERNAL_DOMAIN":"172.16.1.9:8086"]
+//            versionCode 1003
+//            versionName "2.0.3.0"
+//        }
+
+        /**
+         * 9180
+         * 8180
+         */
+//        cqM3 {//重庆同城
+//            applicationId "cn.jufuns.jumobile.ws.m3"
+//            manifestPlaceholders = [APP_NAME: "移动销售",
+//                                    APP_ICON: "@drawable/m3",
+//                                    "URL": "http://112.74.62.250:8180/logincall.do?date_type=",
+//                                    "DOMAIN": "112.74.62.250:8280",
+//                                    "INTERNAL_URL":"http://112.74.62.250:8180/logincall.do?date_type=",
+//                                    "INTERNAL_DOMAIN":"112.74.62.250:8280"]
+//            versionCode 1005
+//            versionName "2.0.3.2"
+//        }
+
+//        cqYidonghuawu {//重庆同城
+//            applicationId "cn.jufuns.jumobile.ws.ydhw"
+//            manifestPlaceholders = [APP_NAME: "移动话务",
+//                                    APP_ICON: "@drawable/yidonghuawu",
+//                                    "URL": "http://112.74.62.250:8180/cqcrm/cqcrmindex_doCqCrmIndex.do?date_type=",
+//                                    "DOMAIN": "112.74.62.250:8280",
+//                                    "INTERNAL_URL":"http://112.74.62.250:8180/web/cqcrm/cqcrmindex_doCqCrmIndex.do?date_type=",
+//                                    "INTERNAL_DOMAIN":"112.74.62.250:8280"]
+//            versionCode 1003
+//            versionName "2.0.3.0"
+//        }
+//
+//        cqJieFangGuangLi {//重庆同城
+//            applicationId "cn.jufuns.jumobile.ws.jfgl"
+//            manifestPlaceholders = [APP_NAME: "接访管理",
+//                                    APP_ICON: "@drawable/jiefang",
+//                                    "URL": "http://112.74.62.250:8180/logincall.do?date_type=visit",
+//                                    "DOMAIN": "112.74.62.250:8280",
+//                                    "INTERNAL_URL":"http://112.74.62.250:8180/logincall.do?date_type=visit",
+//                                    "INTERNAL_DOMAIN":"112.74.62.250:8280"]
+//            versionCode 1004
+//            versionName "2.0.3.1"
+//        }
+
+//        /**
+//         *14
+//         */
+//        d14M3 {
+//            applicationId "cn.jufuns.jumobile.ws.m3"
+//            manifestPlaceholders = [APP_NAME: "移动销售",
+//                                    APP_ICON: "@drawable/m3",
+//                                    "URL": "http://172.16.1.14:8086/web/logincall.do?date_type=",
+//                                    "DOMAIN": "172.16.1.14:8280",
+//                                    "INTERNAL_URL":"http://172.16.1.14:8086/web/logincall.do?date_type=",
+//                                    "INTERNAL_DOMAIN":"172.16.1.14:8280"]
+//            versionCode 1004
+//            versionName "2.0.3.1"
+//        }
+//
+//        d14Yidonghuawu {//14
+//            applicationId "cn.jufuns.jumobile.ws.ydhw"
+//            manifestPlaceholders = [APP_NAME: "移动话务",
+//                                    APP_ICON: "@drawable/yidonghuawu",
+//                                    "URL": "http://172.16.1.14:8086/web/cqcrm/cqcrmindex_doCqCrmIndex.do?date_type=",
+//                                    "DOMAIN": "172.16.1.14:8280",
+//                                    "INTERNAL_URL":"http://172.16.1.14:8086/web/cqcrm/cqcrmindex_doCqCrmIndex.do?date_type=",
+//                                    "INTERNAL_DOMAIN":"172.16.1.14:8280"]
+//            versionCode 1003
+//            versionName "2.0.3.0"
+//        }
+//
+//        /**
+//         * 13
+//         */
+//        d13M3 {
+//            applicationId "cn.jufuns.jumobile.ws.m3"
+//            manifestPlaceholders = [APP_NAME: "移动销售",
+//                                    APP_ICON: "@drawable/m3",
+//                                    "URL": "http://172.16.1.13:8086/web/logincall.do?date_type=",
+//                                    "DOMAIN": "172.16.1.13:8280",
+//                                    "INTERNAL_URL":"http://172.16.1.13:8086/web/logincall.do?date_type=",
+//                                    "INTERNAL_DOMAIN":"172.16.1.13:8280"]
+//            versionCode 1004
+//            versionName "2.0.3.1"
+//        }
+//
+//        d13Xiaokong {
+//            applicationId "cn.jufuns.jumobile.ws.xk"
+//            manifestPlaceholders = [APP_NAME: "销控",
+//                                    APP_ICON: "@drawable/xiaokong",
+//                                    "URL": "http://172.16.1.13:8086/web/logincall.do?date_type=sales",
+//                                    "DOMAIN": "172.16.1.13:8280",
+//                                    "INTERNAL_URL":"http://172.16.1.13:8086/web/logincall.do?date_type=sales",
+//                                    "INTERNAL_DOMAIN":"172.16.1.13:8280"]
+//            versionCode 1003
+//            versionName "2.0.3.0"
+//        }
+//
+//        d13Jiefang {
+//            applicationId "cn.jufuns.jumobile.ws.jf"
+//            manifestPlaceholders = [APP_NAME: "接访",
+//                                    APP_ICON: "@drawable/jiefang",
+//                                    "URL": "http://172.16.1.13:8086/web/logincall.do?date_type=visit",
+//                                    "DOMAIN": "172.16.1.13:8280",
+//                                    "INTERNAL_URL":"http://172.16.1.13:8086/web/logincall.do?date_type=visit",
+//                                    "INTERNAL_DOMAIN":"172.16.1.13:8280"]
+//            versionCode 1003
+//            versionName "2.0.3.0"
+//        }
+//
+//        d13Panke {
+//            applicationId "cn.jufuns.jumobile.ws.pk"
+//            manifestPlaceholders = [APP_NAME: "判客",
+//                                    APP_ICON: "@drawable/panke",
+//                                    "URL": "http://172.16.1.13:8086/web/logincall.do?date_type=customer",
+//                                    "DOMAIN": "172.16.1.13:8280",
+//                                    "INTERNAL_URL":"http://172.16.1.13:8086/web/logincall.do?date_type=customer",
+//                                    "INTERNAL_DOMAIN":"172.16.1.13:8280"]
+//            versionCode 1003
+//            versionName "2.0.3.0"
+//        }
+//
+//        d13Yidonghuawu {
+//            applicationId "cn.jufuns.jumobile.ws.ydhw"
+//            manifestPlaceholders = [APP_NAME: "移动话务",
+//                                    APP_ICON: "@drawable/yidonghuawu",
+//                                    "URL": "http://172.16.1.13:8086/web/cqcrm/cqcrmindex_doCqCrmIndex.do?date_type=",
+//                                    "DOMAIN": "172.16.1.13:8280",
+//                                    "INTERNAL_URL":"http://172.16.1.13:8086/web/cqcrm/cqcrmindex_doCqCrmIndex.do?date_type=",
+//                                    "INTERNAL_DOMAIN":"172.16.1.13:8280"]
+//            versionCode 1003
+//            versionName "2.0.3.0"
+//        }
+//
+//        d13JieFangGuangLi {
+//            applicationId "cn.jufuns.jumobile.ws.jfgl"
+//            manifestPlaceholders = [APP_NAME: "接访管理",
+//                                    APP_ICON: "@drawable/jiefang",
+//                                    "URL": "http://172.16.1.13:8086/web/logincall.do?date_type=visit",
+//                                    "DOMAIN": "172.16.1.13:8280",
+//                                    "INTERNAL_URL":"http://172.16.1.13:8086/web/logincall.do?date_type=visit",
+//                                    "INTERNAL_DOMAIN":"172.16.1.13:8280"]
+//            versionCode 1004
+//            versionName "2.0.3.1"
+//        }
+//
+//        d13Suanjia {
+//            applicationId "cn.jufuns.jumobile.ws.suanjia"
+//            manifestPlaceholders = [APP_NAME: "算价单",
+//                                    APP_ICON: "@drawable/suanjia",
+//                                    "URL": "http://172.16.1.13:8086/web/logincall.do?date_type=price",
+//                                    "DOMAIN": "172.16.1.13:8280",
+//                                    "INTERNAL_URL":"http://172.16.1.13:8086/web/logincall.do?date_type=price",
+//                                    "INTERNAL_DOMAIN":"172.16.1.13:8280"]
+//            versionCode 1004
+//            versionName "2.0.3.1"
+//        }
+//
+//
+//        //齐国文
+//        dqYidonghuawu {
+//            applicationId "cn.jufuns.jumobile.ws.ydhw"
+//            manifestPlaceholders = [APP_NAME: "移动话务",
+//                                    APP_ICON: "@drawable/yidonghuawu",
+//                                    "URL": "http://172.16.2.207:8083/web/cqcrm/cqcrmindex_doCqCrmIndex.do?date_type=",
+//                                    "DOMAIN": "172.16.2.207:8083",
+//                                    "INTERNAL_URL":"http://172.16.2.207:8083/web/cqcrm/cqcrmindex_doCqCrmIndex.do?date_type=",
+//                                    "INTERNAL_DOMAIN":"172.16.2.207:8083"]
+//            versionCode 1003
+//            versionName "2.0.3.0"
+//        }
+//
+//        //齐国文
+//        dqM3 {
+//            applicationId "cn.jufuns.jumobile.ws.m3"
+//            manifestPlaceholders = [APP_NAME: "移动销售",
+//                                    APP_ICON: "@drawable/m3",
+//                                    "URL": "http://172.16.2.207:8083/web/logincall.do?date_type=",
+//                                    "DOMAIN": "172.16.2.207:8083",
+//                                    "INTERNAL_URL":"http:172.16.2.207:8083/web/logincall.do?date_type=",
+//                                    "INTERNAL_DOMAIN":"172.16.2.207:8083"]
+//            versionCode 1004
+//            versionName "2.0.3.1"
+//        }
+//
+//        foshanJiefang {
+//            applicationId "cn.jufuns.jumobile.ws.jf"
+//            manifestPlaceholders = [APP_NAME: "接访",
+//                                    APP_ICON: "@drawable/jiefang",
+//                                    "URL": "http://172.16.2.104:8086/web/logincall.do?date_type=visit",
+//                                    "DOMAIN": "172.16.2.104:8080",
+//                                    "INTERNAL_URL":"http://172.16.2.104:8180/web/logincall.do?date_type=visit",
+//                                    "INTERNAL_DOMAIN":"172.16.2.104:8080"]
+//            versionCode 1003
+//            versionName "2.0.3.0"
+//        }
+//
+//        foshanM3 {
+//            applicationId "cn.jufuns.jumobile.ws.m3"
+//            manifestPlaceholders = [APP_NAME: "移动销售",
+//                                    APP_ICON: "@drawable/m3",
+//                                    "URL": "http://172.16.2.104:8286/logincall.do?date_type=",
+//                                    "DOMAIN": "172.16.2.104:8280",
+//                                    "INTERNAL_URL":"http:172.16.2.104:8286/logincall.do?date_type=",
+//                                    "INTERNAL_DOMAIN":"172.16.2.104:8280"]
+//            versionCode 1004
+//            versionName "2.0.3.1"
+//        }
+//
+//        foshanYidonghuawu {//佛山
+//            applicationId "cn.jufuns.jumobile.ws.ydhw"
+//            manifestPlaceholders = [APP_NAME: "移动话务",
+//                                    APP_ICON: "@drawable/yidonghuawu",
+//                                    "URL": "http://172.16.2.104:8286/cqcrm/cqcrmindex_doCqCrmIndex.do?date_type=",
+//                                    "DOMAIN": "172.16.2.104:8280",
+//                                    "INTERNAL_URL":"http://172.16.2.104:8286/cqcrm/cqcrmindex_doCqCrmIndex.do?date_type=",
+//                                    "INTERNAL_DOMAIN":"http://172.16.2.104:8286"]
+//            versionCode 1003
+//            versionName "2.0.3.0"
+//        }
+//
+//        huiChengHongTuM3 {//汇诚宏图
+//            applicationId "cn.jufuns.jumobile.ws.m3"
+//            manifestPlaceholders = [APP_NAME: "移动销售",
+//                                    APP_ICON: "@drawable/m3",
+//                                    "URL": "http://120.77.169.22/logincall.do?date_type=",
+//                                    "DOMAIN": "120.77.169.22:8280",
+//                                    "INTERNAL_URL":"http:120.77.169.22/logincall.do?date_type=",
+//                                    "INTERNAL_DOMAIN":"120.77.169.22:8280"]
+//            versionCode 1004
+//            versionName "2.0.3.1"
+//        }
+//
+//        huiChengHongTuYidonghuawu {//汇诚宏图
+//            applicationId "cn.jufuns.jumobile.ws.ydhw"
+//            manifestPlaceholders = [APP_NAME: "移动话务",
+//                                    APP_ICON: "@drawable/yidonghuawu",
+//                                    "URL": "http://120.77.169.22/cqcrm/cqcrmindex_doCqCrmIndex.do?date_type=",
+//                                    "DOMAIN": "120.77.169.22:8280",
+//                                    "INTERNAL_URL":"http://120.77.169.22/cqcrm/cqcrmindex_doCqCrmIndex.do?date_type=",
+//                                    "INTERNAL_DOMAIN":"120.77.169.22:8280"]
+//            versionCode 1003
+//            versionName "2.0.3.0"
+//        }
+
+        /**
+         * 保利拉菲系列
+         */
+        bllfJiefang {
+            applicationId "cn.jufuns.jumobile.ws.jf"
+            manifestPlaceholders = [APP_NAME: "接访",
+                                    APP_ICON: "@drawable/jiefang",
+                                    "URL": "http://222.223.215.198:8090/logincall.do?date_type=visit",
+                                    "DOMAIN": "222.223.215.198:8180",
+                                    "INTERNAL_URL":"http://222.223.215.198:8090/logincall.do?date_type=visit",
+                                    "INTERNAL_DOMAIN":"222.223.215.198:8180"]
+            versionCode 1004
+            versionName "2.0.4.0"
+        }
+
+        bllfXiaokong {
+            applicationId "cn.jufuns.jumobile.ws.xk"
+            manifestPlaceholders = [APP_NAME: "销控",
+                                    APP_ICON: "@drawable/xiaokong",
+                                    "URL": "http://222.223.215.198:8090/logincall.do?date_type=sales",
+                                    "DOMAIN": "222.223.215.198:8180",
+                                    "INTERNAL_URL":"http://222.223.215.198:8090/logincall.do?date_type=sales",
+                                    "INTERNAL_DOMAIN":"222.223.215.198:8180"]
+            versionCode 1003
+            versionName "2.0.3.0"
+        }
+
+        bllfSuanjia {
+            applicationId "cn.jufuns.jumobile.ws.suanjia"
+            manifestPlaceholders = [APP_NAME: "算价单",
+                                    APP_ICON: "@drawable/suanjia",
+                                    "URL": "http://222.223.215.198:8090/logincall.do?date_type=price",
+                                    "DOMAIN": "222.223.215.198:8180",
+                                    "INTERNAL_URL":"http://222.223.215.198:8090/logincall.do?date_type=price",
+                                    "INTERNAL_DOMAIN":"222.223.215.198:8180"]
+            versionCode 1004
+            versionName "2.0.3.1"
+        }
+//        bllfM3 {
+//            applicationId "cn.jufuns.jumobile.ws.m3"
+//            manifestPlaceholders = [APP_NAME: "移动销售",
+//                                    APP_ICON: "@drawable/m3",
+//                                    "URL": "http://222.223.215.198:8090/logincall.do?date_type=",
+//                                    "DOMAIN": "222.223.215.198:8180",
+//                                    "INTERNAL_URL":"http://222.223.215.198:8090/logincall.do?date_type=",
+//                                    "INTERNAL_DOMAIN":"222.223.215.198:8180"]
+//            versionCode 1005
+//            versionName "2.0.3.2"
+//        }
+
+
+        d47JieFangGuangLi {
+            applicationId "cn.jufuns.jumobile.ws.jfgl"
+            manifestPlaceholders = [APP_NAME: "接访管理",
+                                    APP_ICON: "@drawable/jiefang",
+                                    "URL": "http://172.16.2.47:8086/web/logincall.do?date_type=visit",
+                                    "DOMAIN": "172.16.2.47:8280",
+                                    "INTERNAL_URL":"http://172.16.2.47:8086/web/logincall.do?date_type=visit",
+                                    "INTERNAL_DOMAIN":"172.16.2.47:8280"]
+            versionCode 1004
+            versionName "2.0.3.1"
+        }
+
+        dlM3 {
+            applicationId "cn.jufuns.jumobile.ws.m3.yxy"
+            manifestPlaceholders = [APP_NAME: "聚房宝移动销售",
+                                    APP_ICON: "@drawable/m3",
+                                    "URL": "http://dl.jufuns.cn/logincall.do?date_type=",
+                                    "DOMAIN": "dl.jufuns.cn:8180"]
+            versionCode 1006
+            versionName "2.0.0"
+        }
+
+        customer{
+            applicationId APPLICATION_ID
+            manifestPlaceholders = [APP_NAME: getCustomerAppName(),
+                                    APP_ICON: APP_ICON,
+                                    URL: WEB_URL,
+                                    DOMAIN: APP_DOMAIN]
+            versionCode VERSION_CODE as int
+            versionName VERSION_NAME
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def outputFile = output.outputFile
+            def fileName
+            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                if (variant.buildType.name.equals('release')) {
+                    fileName = "webShell_${variant.productFlavors[0].name}_${getNowDate}_release(${variant.productFlavors[0].versionName}).apk"
+                } else {
+                    fileName = "webShell_${variant.productFlavors[0].name}_${getNowDate}_debug(${variant.productFlavors[0].versionName}).apk"
+                }
+                output.outputFile = new File(outputFile.parent, fileName)
+            }
+        }
+    }
+
+    sourceSets { main { res.srcDirs = ['src/main/res', 'src/main/res/drawable'] } }
+//    buildToolsVersion '25.0.0'
+}
+
+//获取客户自定义app名称
+def getCustomerAppName() {
+    return new String(APP_NAME.getBytes("iso8859-1"), "UTF-8")
+}
+
+dependencies {
+    compile files('libs/zxing.jar')
+    compile "com.google.code.gson:gson:$rootProject.ext.gsonVersion"
+    compile 'com.android.support:support-v4:25.1.0'
+}

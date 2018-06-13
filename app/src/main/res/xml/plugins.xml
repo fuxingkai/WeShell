@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugins>
+    <plugin
+        name="Preference"
+        class="cn.jufuns.ws.plugin.Preference" />
+    <plugin
+        name="App"
+        class="cn.jufuns.ws.plugin.App" />
+</plugins>
